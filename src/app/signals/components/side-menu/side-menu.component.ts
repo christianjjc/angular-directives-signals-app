@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 
 interface MenuItemI {
   title: string;
@@ -12,10 +12,17 @@ interface MenuItemI {
   styleUrl: './side-menu.component.css',
 })
 export class SideMenuComponent {
-  //
-  public menuItems: MenuItemI[] = [
+  //* Forma tradicional
+  // public menuItems: MenuItemI[] = [
+  //   { title: 'Contador', route: 'counter' },
+  //   { title: 'Usuario', route: 'user-info' },
+  //   { title: 'Mutaciones', route: 'properties' },
+  // ];
+
+  //* Signals
+  public menuItems = signal<MenuItemI[]>([
     { title: 'Contador', route: 'counter' },
     { title: 'Usuario', route: 'user-info' },
     { title: 'Mutaciones', route: 'properties' },
-  ];
+  ]);
 }
